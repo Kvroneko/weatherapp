@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Temperature from '../../../../components/Temperature';
-import WeatherImage from '../../../../components/WeatherImage';
+import Temperature from '../../../../../components/Temperature';
+import WeatherImage from '../../../../../components/WeatherImage';
 
 const Button = styled.button`
   background: transparent;

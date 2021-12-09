@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import Current from './Current/Current';
+import Current from '../pages/HomePage/Current';
 import background from './assets/background.png';
-import OtherCities from './OtherCities/OtherCities';
+import OtherCities from '../pages/HomePage/OtherCities';
+import Forecast from '../pages/HomePage/Forecast';
 
 const Container = styled.div`
   height: 100vh;
@@ -34,17 +35,19 @@ const Divider = styled.div`
     opacity: 0.6;
 `
 
+const SYDNEY_CITY_ID = 6619279;
+
 function App() {
+  const [cityId, setCityId] = useState(SYDNEY_CITY_ID);
+
   return (
     <Container>
       <Panel>
-        <Current />
+        <Current cityId={cityId} />
         <Bottom>
-          <OtherCities />
+          <OtherCities cityId={cityId} onCityClick={(id) => setCityId(id)} />
           <Divider />
-          <div>
-            Forcast
-          </div>
+          <Forecast />
         </Bottom>
       </Panel>
     </Container>
