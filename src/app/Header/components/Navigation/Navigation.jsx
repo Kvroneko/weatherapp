@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Link from '../../../../components/Link'
 
 const Nav = styled.nav`
     display: flex;
@@ -14,10 +15,10 @@ const Navigation = () => {
     return (
         <Nav>
             <Item>
-            <a href='/'>Home</a>
+            <Link to='/'>Home</Link>
             </Item>
             <Item>
-            <a href='/'>About</a>
+            <Link to='/about'>About</Link>
             </Item>
         </Nav>
     )
