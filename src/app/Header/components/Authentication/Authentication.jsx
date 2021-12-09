@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from '../../../../components/Button'
+import Link from '../../../../components/Link'
 
 const Wrapper = styled.div`
     display: inline-block;
@@ -13,14 +14,18 @@ const Authentication = () => {
     return (
         <div>
             <Wrapper>
-                <Button variant="primary">
-                    Log In
-                </Button>
+                <Link to="/login">
+                    <Button variant="primary">
+                        Log In
+                    </Button>
+                </Link>
             </Wrapper>
             <Wrapper>
-                <Button variant="secondary">
-                    Sign Up
-                </Button>
+                <Link to="/signup">
+                    <Button variant="secondary">
+                        Sign Up
+                    </Button>
+                </Link>
             </Wrapper>
         </div>
     )

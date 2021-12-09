@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Header from './Header'
-import About from '../pages/AboutPage'
+import Header from './Header';
+import About from '../pages/AboutPage';
+import LoginPage from '../pages/LoginPage';
+import SignupPage from '../pages/SignupPage'
 import Current from '../pages/HomePage/Current';
 import background from './assets/background.png';
 import OtherCities from '../pages/HomePage/OtherCities';
 import Forecast from '../pages/HomePage/Forecast';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from "react-router-dom";
 
 const Container = styled.div`
   height: 100vh;
@@ -43,20 +51,32 @@ function App() {
   const [cityId, setCityId] = useState(SYDNEY_CITY_ID);
 
   return (
-    <>
+    <Router>
     <Header />
-    <Container>
-      <Panel>
-        <Current cityId={cityId} />
-        <Bottom>
-          <OtherCities cityId={cityId} onCityClick={(id) => setCityId(id)} />
-          <Divider />
-          <Forecast />
-        </Bottom>
-      </Panel>
-    </Container>
-    <About />
-    </>
+    <Switch>
+      <Route path="/" exact>
+        <Container>
+          <Panel>
+            <Current cityId={cityId} />
+            <Bottom>
+              <OtherCities cityId={cityId} onCityClick={(id) => setCityId(id)} />
+              <Divider />
+              <Forecast />
+            </Bottom>
+          </Panel>
+        </Container>
+      </Route>
+      <Route path="/about" exact>
+        <About />
+      </Route>
+      <Route path="/login" exact>
+        <LoginPage />
+      </Route>
+      <Route path="/signup" exact>
+        <SignupPage />
+      </Route>
+    </Switch>
+    </Router>
 
   );
 }
