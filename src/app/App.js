@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Header from './Header'
+import About from '../pages/AboutPage'
 import Current from '../pages/HomePage/Current';
 import background from './assets/background.png';
 import OtherCities from '../pages/HomePage/OtherCities';
@@ -41,6 +43,8 @@ function App() {
   const [cityId, setCityId] = useState(SYDNEY_CITY_ID);
 
   return (
+    <>
+    <Header />
     <Container>
       <Panel>
         <Current cityId={cityId} />
@@ -51,6 +55,9 @@ function App() {
         </Bottom>
       </Panel>
     </Container>
+    <About />
+    </>
+
   );
 }
 
