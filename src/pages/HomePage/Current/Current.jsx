@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import Temperature from "../../../components/Temperature/Temperature";
-import background from "./assets/background.jpeg";
+import background from "./assets/background.jpg";
 import SubText from "./components/SubText/SubText";
 import Metas from "./components/Metas/Metas";
 import getWeather from "../../../apis/getWeather/getWeather";

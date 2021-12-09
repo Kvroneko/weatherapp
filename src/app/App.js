@@ -5,7 +5,7 @@ import About from '../pages/AboutPage';
 import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage'
 import Current from '../pages/HomePage/Current';
-import background from './assets/background.png';
+import background from './assets/background.jpg';
 import OtherCities from '../pages/HomePage/OtherCities';
 import Forecast from '../pages/HomePage/Forecast';
 import {
