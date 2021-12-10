@@ -12,8 +12,13 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
 } from "react-router-dom";
+
+const Containerr = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-heigt: 100vh;
+`
 
 const Container = styled.div`
   height: 100vh;
@@ -52,6 +57,7 @@ function App() {
 
   return (
     <Router>
+    <Containerr>
     <Header />
     <Switch>
       <Route path="/" exact>
@@ -76,6 +82,7 @@ function App() {
         <SignupPage />
       </Route>
     </Switch>
+    </Containerr>
     </Router>
 
   );
