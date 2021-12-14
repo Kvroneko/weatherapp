@@ -18,8 +18,14 @@ const StyledInput = styled.input`
     color: #838383;
     width: 100%;
 
+    ${({ error }) => error && css`
+        color: red;
+        border-color: red;
+    `}
+
     &:focus {
         color: #69B1BB;
+        border-color: #69B1BB;
     }
 `
 
@@ -39,6 +45,10 @@ const Label = styled.label`
         transform: translateY(-110%);
     `}
 
+    ${({ error }) => error && css`
+        color: red;
+    `}
+
 
     transition: font-size 0.15s, translateY 0.15s;
 `
@@ -46,6 +56,8 @@ const Label = styled.label`
 const Input = ({
     label,
     id,
+    onChange,
+    error,
 }) => {
     const [focused, setFocused] = useState(false);
     const [value, setValue] = useState('')
@@ -55,13 +67,19 @@ const Input = ({
             <Label 
                 focused={focused} 
                 htmlFor={id}
-                value={value}    
+                value={value}   
+                error={error} 
             >
                 {label}
             </Label>
-            <StyledInput id={id} 
-            value={value}
-            onChange={(event) => setValue(event.target.value)}
+            <StyledInput 
+                error={error}
+                id={id} 
+                value={value}
+                onChange={(event) => {
+                    setValue(event.target.value)
+                    onChange(event);
+            }}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
             />
