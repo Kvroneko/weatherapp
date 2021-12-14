@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Link from '../../components/Link'
 import Button from '../../components/Button'
 import banner from './assets/Banner.jpg'
+import Input from '../../components/Input'
 
 
 const Container = styled.div`
@@ -57,7 +58,7 @@ const Conditions = styled.div`
 `
 
 const ConditionLink = styled(Link)`
-    color: green;
+    color: #69B1BB;
 `
 
 const SignupButton = styled(Button)`
@@ -71,11 +72,6 @@ const Title = styled.h2`
     font-weight: 800;
 `
 
-const Input = () => (
-    <div>input</div>
-)
-
-
 const CheckBox = () => (
     <div>checkbox</div>
 )
@@ -88,18 +84,19 @@ const SignupPage = () => {
             </Banner>
             <SignupForm>
             <Title>Create Account</Title>
-                <Input label="First Name" />
-                <Input label="Last Name" />
-                <Input label="Email" />
-                <Input label="Password" />
+                <Input id="first_name" label="First Name" />
+                <Input id="last_name" label="Last Name" />
+                <Input id="email" label="Email" />
+                <Input id="password" label="Password" />
                 <PasswordHintList>
                     <li>Must be 8 characters at least</li>
                     <li>Must include a number/special character</li>
                 </PasswordHintList>
                 <Conditions>
                     <input type="checkbox" id="conditions" />
-                    <label htmlFor='conditons'> I agree to the 
-                    <ConditionLink to="/"> terms and conditions</ConditionLink>
+                    <label htmlFor="conditons">{' '}I agree to the
+                    {' '} 
+                    <ConditionLink to="/">terms and conditions</ConditionLink>
                     </label>
                 </Conditions>
                 <SignupButton variant="primary" size="lg">SIGN UP</SignupButton>
