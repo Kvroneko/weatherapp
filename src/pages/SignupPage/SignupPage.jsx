@@ -140,6 +140,8 @@ const SignupPage = () => {
         password: {value: '', touched: false},
     });
 
+    const [submited, setSubmited] = useState(false);
+
     // const [touched, setTouched] = useState({
     //     firstName: false,
     //     lastName: false,
@@ -157,11 +159,30 @@ const SignupPage = () => {
             <Banner>
                 <Heading>SIGN UP</Heading>
             </Banner>
-            <SignupForm>
+            <SignupForm
+                onSubmit={(event) => {
+                    setSubmited(true)
+                    event.preventDefault()
+
+                    const valid = Object.keys(data).map((key) => {
+                        const {validate} = fields.find((field) => field.key === key)
+
+                        const errorMessage = validate(data[key].value)
+
+                        return !!errorMessage
+                    })
+                    .every((errorMessage) => !errorMessage)
+
+                    if (!valid) {
+                        return false
+                    }
+                }}
+            >
             <Title>Create Account</Title>
             {fields.map(({key, id, label, validate}) => {
                 const errorMessage = validate(data[key].value);
-                const error = data[key].touched && errorMessage
+                const showErrorMessage = data[key].touched || submited
+                const error = showErrorMessage && errorMessage
 
                 return (
                     <>
